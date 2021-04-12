@@ -1,0 +1,71 @@
+<!--20세 이상, 30세 이상, 40세 이상의 레이블lable을 가지는 버튼을 생성
+// 클릭에 따라 유저 리스트를 출력하는 코드-->
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+    <link rel="stylesheet" href="../../common/css/062.css" />
+    <link rel="stylesheet" href="062.css" />
+    <!-- <script src="062.js" defer></script> -->
+</head>
+
+<body>
+    <div class="button-wrapper">
+        <button class="button" data-age="20">20세 이상</button>
+        <button class="button" data-age="30">30세 이상</button>
+        <button class="button" data-age="40">40세 이상</button>
+    </div>
+    <ul class="user_list">
+    </ul>
+    <script>
+        // 버튼 클릭시 onClickButton() 처리는 button 요소가 가지고 있는 데이터 값을 가져옴
+        // 조건에 만족하는 요소를 userDataList에서 가져와 updateList()를 통해 배열을 생성
+
+        // 데이터
+        const userDataList = [
+            { name: '곰', age: 18 },
+            { name: '여우', age: 27 },
+            { name: '사자', age: 32 },
+            { name: '얼룩말', age: 41 },
+            { name: '기린', age: 56 },
+        ];
+
+        // .button 요소의 이벤트 설정
+        document.querySelectorAll('.button').forEach((element) => {
+            element.addEventListener('click', (event) => {
+                onClickButton(event);
+            });
+        });
+
+        // 버튼 클릭 시 처리
+        function onClickButton(event) {
+            // 클릭한 버튼(=event)의 target값을 가져와 변수 button에 대입함
+            const button = event.target;
+            // 버튼 요소에서 data-age 가져오기
+            const targetAge = button.dataset.age;
+            // targetAge 이상의 유저 배열 생성
+            const filterdList = userDataList.filter((data) => data.age >= targetAge);
+            // 배열을 출력
+            updateList(filterdList);
+        }
+
+        //유저 배열을 출력
+        function updateList(filterdList) {
+            let listHtml = '';
+
+            for (const data of filterdList) {
+                listHtml += `<li>${data.name} : ${data.age}세</li>`;
+            }
+
+            document.querySelector('.user_list').innerHtml = listHtml;
+        }
+
+    </script>
+
+</body>
+
+</html>
