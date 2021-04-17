@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <title>샘플</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../common/css/style.css"/>
+  <link rel="stylesheet" href="../common/css/bash_photo.css"/>
+  <script src="113.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>샘플코드</h1>
+    </header>
+
+    <main>
+      <p><button id="btn" class="button">버튼</button></p>
+    </main>
+    <script>
+        const button = document.querySelector('.button');
+        button.addEventListener('click', onClickButton);
+
+        function onClickButton() {
+            // 브라우저 팝업창이 아닌 콘솔창에 
+            console.log('클릭 이벤트가 발생하였습니다.'); // 콘솔창에 몇 번 클릭했는지까지 나옴
+        } </script>
+  </div>
+
+</body>

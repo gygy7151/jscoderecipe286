@@ -1,0 +1,32 @@
+// DOM 요소 엑세스 타이밍에 맞춰 작업을 처리하고 싶을 때
+// 이미지 로딩이 완료된 후 작업을 처리하고 싶을 때
+
+// 자바스크립트에서 DOM 요소의 조작 가능 시점은 HTML 문서의 로딩 완료시점
+// 이 시점에 DOMContentLoaded 이벤트가 발생한다.
+// 근데 script에 defer기능을 활용하게되면 HTML로딩 먼저한후 스크립트가 실행된다.
+// 그래서 DOMContentLoaded보다 더 앞서 실행되기에 이미지 로딩이 먼저 완료되므로 script에서 box요소 개수를 셀수가 있는 것임. 아하!!!!
+// 기존엔 script먼저 실행되기 때문에 이미지 로딩이 안되어 있으므로 박스개수를 세려고 하면 당연히 null 값이 리턴되는거임
+
+
+
+// 페이지 내 .box 요소의 개수를 세는 샘플을 확인해보자
+// 다른 샘플과 달리 script 태그에 defer 속성을 미부여
+
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8"/>
+        <title>샘플</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="../common/css/style.css"/>
+        <link rel="stylesheet" href="../common/css/bash_photo.css"/>
+        <script src="117.js"></script>
+    </head>
+    <body>
+        <main>
+            <div class="box">박스</div>
+            <div class="box">박스</div>
+            <div class="box">박스</div>
+        </main>
+    </body>
+</html>

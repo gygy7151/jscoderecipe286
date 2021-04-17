@@ -1,0 +1,26 @@
+
+// script 태그 defer 속성과 DOMContentLoaded
+// script 태그에 defer 속성 설정시 HTML 로딩 후 스크립트 실행
+// 이는 DOMContentLoaded보다 발생시점 앞선다
+// defer속성을 설정시 DOMContentLoaded의 이벤트 설정은 필요 없음
+// 주로 defer속성 사용 예시
+
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8"/>
+        <title>샘플</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="../common/css/style.css"/>
+        <link rel="stylesheet" href="../common/css/bash_photo.css"/>
+        <script src="117_sub.js" defer></script>
+
+    </head>
+    <body>
+        <main class="main">
+            <div class="box">박스</div>
+            <div class="box">박스</div>
+            <div class="box">박스</div>
+        </main>
+    </body>
+</html>
