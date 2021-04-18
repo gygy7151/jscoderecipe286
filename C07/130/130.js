@@ -36,7 +36,7 @@ window.addEventListener('resize', () => {
 
     // 1000밀리초 후 onResize() 실행
     resizeTimer = setTimeout(() => {
-        onresize();
+        onResize();
     }, 1000);
 });
 

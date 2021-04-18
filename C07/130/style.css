@@ -1,7 +1,7 @@
-@import url(../../common/css/base_photo.css);
+@import url(../common/css/base_photo.css);
 body {
   background-size: cover;
-  background: url("../common/bg_sky.jpg") center;
+  background: url("../common/images/bg_nature.jpg") center;
 }
 
 main {
