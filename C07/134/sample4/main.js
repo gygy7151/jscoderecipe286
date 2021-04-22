@@ -34,4 +34,35 @@ fileZone.addEventListener('drop', (event) => {
 });
 
 //* 이미지 표시 처리 */
-function 
+function displayImages(transferdFiles) {
+    // 이미지 파일 보관 배열
+    const imageFileList = [];
+
+    // 파일 수 
+    const fileNum = transferdFiles.length;
+
+    // 이미지 파일인 경우에만 작업
+    for (let i = 0; i < fileNum; i++) {
+        if (transferdFiles[i].type.match('image.*') === false) {
+            return;
+        }
+        imageFileList.push(transferdFiles[i]);
+    }
+
+    // 이미지 표시 영역 참조
+    const imagePreviewArea = document.querySelector('.image-list');
+
+    // 각 이미지 파일 처리
+    for (const imageFile of imageFileList) {
+        // 이미지 파일 불러오기
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(imageFile);
+        fileReader.addEventListener('load', (event) => {
+            const image = new Image();
+            image.src = event.target.result;
+            // 표시 영역 첫부분에 이미지 파일 표시
+            imagePreviewArea.insertBefore(image, imagePreviewArea.firstChid);
+        });
+
+    }
+}
