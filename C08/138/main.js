@@ -1,9 +1,17 @@
-// 각 .box 요소 루프 처리
-document.querySelectorAll('.box').forEach((targetBox) => {
-    // .box 요소 클릭 시 처리 작업
-    targetBox.addEventListener('click', () => {
-        // 클릭한 .box요소의 텍스트 표시
-      alert( `${targetBox.textContent} 클릭`);
-    })
-  })
+//. box 요소 모두 가져오기
+const boxList = document.querySelectorAll('.box');
+boxList.forEach((targetBox) => {
+  // 각 박스 요소 출력
+  console.log(targetBox);
+});
+
+const boxList = document.querySelectorAll('.box');
+const boxLength = boxList.length;
+
+for (let index = 0; index < boxLength; index++) {
+  // 각 박스요소 출력
+  console.log(boxList[index]);
+}
+
+// 각 .ㅠㅐㅌ
   
